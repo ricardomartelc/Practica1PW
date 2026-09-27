@@ -24,3 +24,36 @@ Route::get('/Adrian', function () {
 Route::get('/RicardoPrivado', function () {
     return include('../practica/RicardoPrivado.html');
 });
+
+
+
+Route::get('/paginaPersonal/{nombre}', function ($nombre) {
+    $path = base_path("practica/{$nombre}Privado.html");
+
+    if (!file_exists($path)) {
+        abort(404, 'Página privada no encontrada.');
+    }
+
+    $html = file_get_contents($path);
+
+    // Extraemos solo lo que está dentro del body del archivo HTML privado
+    if (preg_match('/<body[^>]*>(.*?)<\/body>/s', $html, $matches)) {
+        $contenido = $matches[1];
+        
+        // Opcional: eliminamos el <nav> antiguo que tuviera dentro para que no choque con el de Blade
+        $contenido = preg_replace('/<nav\b[^>]*>(.*?)<\/nav>/is', '', $contenido);
+    } else {
+        $contenido = $html;
+    }
+
+    return view('paginaPersonal_Grupo1', [
+        'nombre' => $nombre,
+        'contenido' => $contenido
+    ]);
+});
+
+
+
+Route::get('/elGrupo', function () {
+    return view('elGrupo');
+});

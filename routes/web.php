@@ -54,6 +54,25 @@ Route::get('/paginaPersonal/{nombre}', function ($nombre) {
 
 
 
+
 Route::get('/elGrupo', function () {
     return view('elGrupo');
+});
+
+
+
+
+// para el bloque 5:
+
+// Rutas para la página Home del portal
+Route::get('/miPortal', function () {
+    return view('miportal.home');
+});
+
+Route::get('/miPortal/home', function () {
+    return view('miportal.home');
+});
+
+Route::get('/miPortal/acerca', function () {
+    return view('miportal.home'); // Temporalmente usando home para evitar errores si no existe otra vista
 });

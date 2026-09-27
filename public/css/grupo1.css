@@ -16,7 +16,7 @@
     --paper-soft: #ffffff;  /* tarjetas / superficies suaves */
     --rust: #7c9f77;        /* acento principal: terracota */
     --rust-dark: #8a3c22;   /* hover sobre terracota */
-    --moss: #37452e;        /* verde musgo: segundo acento, ligado al ODS12 */
+    --moss: #273917;        /* verde musgo: segundo acento, ligado al ODS12 */
     --muted: #7d7362;       /* texto secundario */
     --border: #e2d6b8;
 }
@@ -217,9 +217,6 @@ h1, h2, h3 {
 .section-bg-fixed {
     position: relative;
     background-color: var(--moss);
-    background-image:
-        linear-gradient(rgba(30, 40, 25, 0.72), rgba(30, 40, 25, 0.72)),
-        url('../img/greenflower.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -242,9 +239,6 @@ h1, h2, h3 {
    -------------------------------------------------------------------- */
 .section-bg-scroll {
     background-color: var(--paper-soft);
-    background-image:
-        linear-gradient(rgba(246, 241, 228, 0.93), rgba(246, 241, 228, 0.93)),
-        url('../img/greenflower.webp');
     background-size: cover;
     background-position: center;
     background-attachment: scroll;

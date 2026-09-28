@@ -25,6 +25,10 @@ Route::get('/RicardoPrivado', function () {
     return include('../practica/RicardoPrivado.html');
 });
 
+Route::get('/RosalindaPrivado', function () {
+    return include('../practica/RosalindaPrivado.html');
+});
+
 
 
 Route::get('/paginaPersonal/{nombre}', function ($nombre) {

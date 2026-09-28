@@ -1,1 +1,24 @@
-GET / (Devuelve la vista 'welcome')
+========================================
+LISTADO DE RUTAS POR DEFECTO - ODS 12
+========================================
+
+1. Página de Bienvenida / Inicio:
+   - Ruta: GET /
+   - URL: http://practica1pw.test/
+   - Descripción: Devuelve la vista principal 'welcome'.
+
+2. Perfiles Públicos (Estáticos):
+   - URL: http://practica1pw.test/RicardoPublico.html
+   - URL: http://practica1pw.test/RosalindaPublico.html
+   - URL: http://practica1pw.test/AdrianPublico.html
+
+3. Páginas Personales / Privadas (Dinámicas):
+   - URL: http://practica1pw.test/paginaPersonal/Ricardo
+   - URL: http://practica1pw.test/paginaPersonal/Rosalinda
+   - URL: http://practica1pw.test/paginaPersonal/Adrian
+
+4. Sección de Equipo:
+   - URL: http://practica1pw.test/elGrupo
+
+5. Portal ODS 12:
+   - URL: http://practica1pw.test/miPortal

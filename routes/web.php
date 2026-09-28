@@ -31,3 +31,7 @@ Route::get('/elGrupo', function () {
 Route::get('/miPortal', function () {
     return view('miportal.home');
 });
+
+Route::get('/miPortal/home', function () {
+    return view('miPortal.home');
+});

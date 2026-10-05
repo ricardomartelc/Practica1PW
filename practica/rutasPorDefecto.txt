@@ -1,0 +1,33 @@
+﻿
+  GET|HEAD  / ............................................................................................. routes/web.php:10
+  GET|HEAD  Adrian ........................................................................................ routes/web.php:28
+  GET|HEAD  AdrianPrivado ................................................................................. routes/web.php:56
+  GET|HEAD  Ricardo ....................................................................................... routes/web.php:20
+  GET|HEAD  RicardoPrivado ................................................................................ routes/web.php:40
+  GET|HEAD  Rosalinda ..................................................................................... routes/web.php:24
+  GET|HEAD  RosalindaPrivado .............................................................................. routes/web.php:48
+  GET|HEAD  elGrupo ....................................................................................... routes/web.php:98
+  GET|HEAD  miPortal ..................................................................................... routes/web.php:108
+  GET|HEAD  miPortal/acerca .............................................................................. routes/web.php:122
+  GET|HEAD  miPortal/home ................................................................................ routes/web.php:112
+  GET|HEAD  paginaPersonal/{nombre} ....................................................................... routes/web.php:70
+  GET|HEAD  storage/{path} storage.local ÔÇ║ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvider.php:ÔÇª
+  PUT       storage/{path} storage.local.upload ÔÇ║ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServiceProvidÔÇª
+  GET|HEAD  up .................. vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:224
+
+                                                                                                          Showing [15] routes
+
+http://Practica1PW.test/
+http://Practica1PW.test/Ricardo
+http://Practica1PW.test/Rosalinda
+http://Practica1PW.test/Adrian
+http://Practica1PW.test/RicardoPrivado
+http://Practica1PW.test/RosalindaPrivado
+http://Practica1PW.test/AdrianPrivado
+http://Practica1PW.test/paginaPersonal/Ricardo
+http://Practica1PW.test/paginaPersonal/Rosalinda
+http://Practica1PW.test/paginaPersonal/Adrian
+http://Practica1PW.test/elGrupo
+http://Practica1PW.test/miPortal
+http://Practica1PW.test/miPortal/home
+http://Practica1PW.test/miPortal/acerca

@@ -6,18 +6,16 @@
    alternan texto e imagen, como un reportaje.
    ========================================================================== */
 
-/* Dos familias claramente distintas: serif para titulares (voz del
-   "reportaje"), sans para todo el texto de lectura y la navegación. */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    --ink: #1c1712;         /* texto principal, casi negro cálido */
-    --paper: #ffffff;       /* fondo general, papel cálido */
-    --paper-soft: #ffffff;  /* tarjetas / superficies suaves */
-    --rust: #7c9f77;        /* acento principal: terracota */
-    --rust-dark: #8a3c22;   /* hover sobre terracota */
-    --moss: #273917;        /* verde musgo: segundo acento, ligado al ODS12 */
-    --muted: #7d7362;       /* texto secundario */
+    --ink: #1c1712;
+    --paper: #ffffff;
+    --paper-soft: #ffffff;
+    --rust: #7c9f77;
+    --rust-dark: #8a3c22;
+    --moss: #37452e;
+    --muted: #7d7362;
     --border: #e2d6b8;
 }
 
@@ -33,9 +31,7 @@ body {
     margin: 0;
 }
 
-/* --------------------------------------------------------------------
-   1. Color de los hiperenlaces
-   -------------------------------------------------------------------- */
+/* 1. Color de los hiperenlaces */
 a {
     color: var(--rust);
 }
@@ -44,11 +40,7 @@ a:hover {
     color: var(--rust-dark);
 }
 
-/* --------------------------------------------------------------------
-   2. Menú: color de letra + cambio de fondo al pasar el ratón
-   (Primera "sección" de la página → tiene su propio color de fondo,
-   ver también el punto 5)
-   -------------------------------------------------------------------- */
+/* 2. Menú: color de letra + cambio de fondo al pasar el ratón */
 nav {
     align-items: center;
     background: var(--paper);
@@ -79,9 +71,7 @@ nav a:hover {
     color: var(--rust);
 }
 
-/* --------------------------------------------------------------------
-   3. Color y tipo de letra para h1, h2, h3
-   -------------------------------------------------------------------- */
+/* 3. Color y tipo de letra para h1, h2, h3 */
 h1, h2, h3 {
     font-family: 'Playfair Display', Georgia, serif;
     color: var(--ink);
@@ -89,9 +79,7 @@ h1, h2, h3 {
     margin: 0;
 }
 
-/* --------------------------------------------------------------------
-   PORTADA a pantalla completa con imagen de fondo (parallax con fixed)
-   -------------------------------------------------------------------- */
+/* PORTADA a pantalla completa con imagen de fondo (parallax con fixed) */
 .cover {
     position: relative;
     min-height: 78vh;
@@ -100,10 +88,10 @@ h1, h2, h3 {
     background-color: var(--ink); /* Color de respaldo */
     background-image: 
         linear-gradient(0deg, rgba(20, 16, 10, 0.75) 0%, rgba(20, 16, 10, 0.15) 55%, rgba(20, 16, 10, 0.45) 100%),
-        url('../../img/greenflower.webp');
+        url('../img/greenflower.webp'); /* CORREGIDO: antes ponía ../../img, apuntaba fuera de public */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fija la imagen y crea el efecto parallax */
+    background-attachment: fixed;
     padding: 56px;
     color: #ffffff;
 }
@@ -111,7 +99,7 @@ h1, h2, h3 {
 .cover-title {
     font-size: clamp(2.6rem, 6.5vw, 5rem);
     line-height: 1;
-    color: #ffffff !important; /* Forzar texto a blanco */
+    color: #ffffff !important;
 }
 
 .cover-social {
@@ -172,9 +160,7 @@ h1, h2, h3 {
     }
 }
 
-/* --------------------------------------------------------------------
-   Sección "lede": párrafo de entrada + botón (formato de botón, punto 6)
-   -------------------------------------------------------------------- */
+/* Sección "lede": párrafo de entrada + botón */
 .lede {
     max-width: 760px;
     margin: 72px auto;
@@ -188,9 +174,7 @@ h1, h2, h3 {
     margin-bottom: 28px;
 }
 
-/* --------------------------------------------------------------------
-   6. Formato de botones: fondo, hover, bordes
-   -------------------------------------------------------------------- */
+/* 6. Formato de botones: fondo, hover, bordes */
 .btn-story {
     display: inline-block;
     background: var(--rust);
@@ -210,13 +194,13 @@ h1, h2, h3 {
     color: var(--rust);
 }
 
-/* --------------------------------------------------------------------
-   4a. Sección con imagen de fondo FIJA (background-attachment: fixed)
-   Se usa como cita/dato destacado a pantalla completa entre capítulos.
-   -------------------------------------------------------------------- */
+/* 4a. Sección con imagen de fondo FIJA (background-attachment: fixed) */
 .section-bg-fixed {
     position: relative;
     background-color: var(--moss);
+    background-image:
+        linear-gradient(rgba(30, 40, 25, 0.72), rgba(30, 40, 25, 0.72)),
+        url('../img/greenflower.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -234,19 +218,18 @@ h1, h2, h3 {
     line-height: 1.35;
 }
 
-/* --------------------------------------------------------------------
-   4b. Sección con imagen de fondo que se mueve con el scroll
-   -------------------------------------------------------------------- */
+/* 4b. Sección con imagen de fondo que se mueve con el scroll */
 .section-bg-scroll {
     background-color: var(--paper-soft);
+    background-image:
+        linear-gradient(rgba(246, 241, 228, 0.93), rgba(246, 241, 228, 0.93)),
+        url('../img/greenflower.webp');
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
 }
 
-/* --------------------------------------------------------------------
-   Capítulos: bloques que alternan texto/imagen, como un reportaje
-   -------------------------------------------------------------------- */
+/* Capítulos: bloques que alternan texto/imagen, como un reportaje */
 .chapter {
     display: flex;
     align-items: center;
@@ -286,11 +269,7 @@ h1, h2, h3 {
     flex: 1 1 45%;
 }
 
-/* --------------------------------------------------------------------
-   7. Dos formatos distintos de imagen
-   7a. .chapter-media img -> rectangular, muy redondeada, con sombra
-   7b. .avatar-frame img  -> circular, para retratos del equipo
-   -------------------------------------------------------------------- */
+/* 7. Dos formatos distintos de imagen */
 .chapter-media img {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -312,13 +291,9 @@ h1, h2, h3 {
     box-shadow: 0 8px 20px rgba(28, 23, 18, 0.18);
 }
 
-/* --------------------------------------------------------------------
-   Variante para la imagen de Laravel: el archivo trae un margen blanco
-   ya "pintado" dentro de la foto, así que ampliamos la imagen (scale)
-   dentro de un recuadro con overflow: hidden para que ese margen quede
-   oculto fuera del marco. Si aún asoma un poco de blanco, sube el
-   valor de scale (1.2, 1.25...).
-   -------------------------------------------------------------------- */
+/* Variante para la imagen de Laravel: el archivo trae margen blanco
+   ya pintado dentro de la foto, así que la ampliamos (scale) dentro
+   de un recuadro con overflow: hidden para ocultar ese margen. */
 .chapter-media--fit {
     overflow: hidden;
     border-radius: 20px;
@@ -344,9 +319,7 @@ h1, h2, h3 {
     }
 }
 
-/* --------------------------------------------------------------------
-   Equipo
-   -------------------------------------------------------------------- */
+/* Equipo */
 .team {
     max-width: 1000px;
     margin: 0 auto;
@@ -379,9 +352,7 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
-/* --------------------------------------------------------------------
-   5. Color de fondo de la última sección (footer)
-   -------------------------------------------------------------------- */
+/* 5. Color de fondo de la última sección (footer) */
 footer {
     background: var(--ink);
     color: rgba(255, 255, 255, 0.65);

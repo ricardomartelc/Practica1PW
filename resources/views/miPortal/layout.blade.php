@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    @include('miportal.partials.header')
+    @include('miPortal.partials.header')
 
     <main class="container">
         @yield('content')

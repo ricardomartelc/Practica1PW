@@ -1,4 +1,4 @@
-@extends('miportal.layout')
+@extends('miPortal.layout')
 
 @section('content')
     <header class="cover" style="text-align: center; padding: 40px 0;">
@@ -11,6 +11,6 @@
         <h2>Objetivos del Portal</h2>
         <p>Este sistema web promueve soluciones digitales para la reducción de residuos y el consumo consciente dentro de nuestro entorno.</p>
     </section>
-    <p> </p> 
+    <p> </p>
 
 @endsection

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Quesos de la Cumbre - Ecodirecto</title>
+    <link rel="stylesheet" href="../../css/grupo4.css">
+    <link rel="stylesheet" href="../../css/bocetos.css">
+</head>
+<body>
+
+    <!-- Boceto estático del caso de uso 3: panel del vendedor 3. El sensor 4
+         (SEN-CUM-T01) marca 9,2 ºC con un máximo de 6 ºC y salta la alerta. -->
+    <div class="boceto-tag">Boceto · Caso de uso 3 · Alerta de un sensor y descuento</div>
+
+    <nav>
+        <a href="#">Mi puesto</a>
+        <a href="#">Productos</a>
+        <a href="#">Sensores</a>
+        <a href="#">Pedidos</a>
+        <a href="#" class="nav-user">Quesos de la Cumbre · Vendedor</a>
+    </nav>
+
+    <main class="dash">
+
+        <div class="dash-head">
+            <div>
+                <h1>Panel del puesto</h1>
+                <p>Quesos de la Cumbre · Mercado de San Mateo, puesto 3</p>
+            </div>
+            <span class="badge badge-alert">1 alerta activa</span>
+        </div>
+
+        <!-- Alerta: sensores.valor_actual > sensores.umbral_max -->
+        <div class="alert">
+            <div class="alert-icon">⚠️</div>
+            <div>
+                <h3>La cámara frigorífica está a 9,2 ºC</h3>
+                <p>El sensor SEN-CUM-T01 supera el máximo de 6 ºC. Para no desperdiciar los productos, ponlos en oferta y aparecerán destacados en la portada.</p>
+            </div>
+        </div>
+
+        <div class="dash-grid">
+
+            <!-- Datos de la tabla sensores (vendedor_id = 3) -->
+            <section class="box">
+                <h3>Sensores del puesto</h3>
+                <table class="lines">
+                    <tr><th>Código</th><th>Tipo</th><th class="num">Valor</th><th class="num">Rango</th><th class="num">Estado</th></tr>
+                    <tr>
+                        <td>SEN-CUM-T01</td><td>Temperatura</td>
+                        <td class="num reading bad">9,2 ºC</td><td class="num">2 – 6 ºC</td>
+                        <td class="num"><span class="badge badge-alert">Fuera de rango</span></td>
+                    </tr>
+                    <tr>
+                        <td>SEN-CUM-H01</td><td>Humedad</td>
+                        <td class="num reading">85 %</td><td class="num">70 – 90 %</td>
+                        <td class="num"><span class="badge badge-ok">Correcto</span></td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Al aplicar, se actualiza productos.descuento_pct de los productos del puesto -->
+            <section class="box">
+                <h3>Poner en oferta</h3>
+                <div class="discount-row">
+                    <label for="dto">Descuento</label>
+                    <input id="dto" class="qty" type="number" value="20" min="0" max="100"> %
+                </div>
+                <table class="lines">
+                    <tr><th>Producto</th><th class="num">Antes</th><th class="num">Ahora</th></tr>
+                    <tr><td>Queso tierno de flor</td><td class="num old-price">9,00 €</td><td class="num"><strong>7,20 €</strong></td></tr>
+                    <tr><td>Queso curado</td><td class="num old-price">14,50 €</td><td class="num"><strong>11,60 €</strong></td></tr>
+                    <tr><td>Yogur de cabra</td><td class="num old-price">1,20 €</td><td class="num"><strong>0,96 €</strong></td></tr>
+                </table>
+                <div class="form-actions">
+                    <a href="caso3_portada.html" class="btn-story">Aplicar descuento</a>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Grupo ODS 12 — ULPGC (EITE)</p>
+    </footer>
+
+</body>
+</html>

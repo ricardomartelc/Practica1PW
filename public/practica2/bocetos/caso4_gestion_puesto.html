@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis productos - Ecodirecto</title>
+    <link rel="stylesheet" href="../../css/grupo4.css">
+    <link rel="stylesheet" href="../../css/bocetos.css">
+</head>
+<body>
+
+    <!-- Boceto estático del caso de uso 4: el vendedor 1 da de alta las cebollas
+         (producto 3) y consulta los productos de su puesto. -->
+    <div class="boceto-tag">Boceto · Caso de uso 4 · Un vendedor gestiona su puesto y su stock</div>
+
+    <nav>
+        <a href="#">Mi puesto</a>
+        <a href="#">Productos</a>
+        <a href="#">Sensores</a>
+        <a href="#">Pedidos</a>
+        <a href="#" class="nav-user">La Huerta de Vegueta · Vendedor</a>
+    </nav>
+
+    <main class="dash">
+
+        <div class="dash-head">
+            <div>
+                <h1>Mis productos</h1>
+                <p>La Huerta de Vegueta · Mercado de Vegueta, puesto 12</p>
+            </div>
+            <span class="badge badge-ok">3 productos · 400 kg en stock</span>
+        </div>
+
+        <div class="dash-grid">
+
+            <!-- Formulario de alta: cada campo es una columna de la tabla productos.
+                 El productor se elige de la tabla productores. -->
+            <section class="box">
+                <h3>Nuevo producto</h3>
+                <div class="form-grid">
+                    <div class="field wide">
+                        <label for="nombre">Nombre</label>
+                        <input id="nombre" type="text" value="Cebollas">
+                    </div>
+                    <div class="field">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria">
+                            <option selected>Verduras</option>
+                            <option>Frutas</option>
+                            <option>Lácteos</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="unidad">Unidad</label>
+                        <select id="unidad">
+                            <option selected>kg</option>
+                            <option>unidad</option>
+                        </select>
+                    </div>
+                    <div class="field wide">
+                        <label for="productor">Productor</label>
+                        <select id="productor">
+                            <option>Finca Las Vegas · Agüimes</option>
+                            <option selected>Cooperativa de San Mateo · Vega de San Mateo</option>
+                            <option>Quesería El Cortijo · Santa María de Guía</option>
+                            <option>Finca Los Berrazales · Agaete</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="stock">Stock</label>
+                        <input id="stock" type="number" value="80" min="0">
+                    </div>
+                    <div class="field">
+                        <label for="co2">CO₂ ahorrado por unidad (kg)</label>
+                        <input id="co2" type="number" value="0.20" step="0.01">
+                    </div>
+                    <div class="field">
+                        <label for="b2c">Precio particular (€)</label>
+                        <input id="b2c" type="number" value="1.50" step="0.01">
+                    </div>
+                    <div class="field">
+                        <label for="b2b">Precio empresa (€)</label>
+                        <input id="b2b" type="number" value="1.10" step="0.01">
+                    </div>
+                    <div class="field">
+                        <label for="minimo">Mínimo para empresas</label>
+                        <input id="minimo" type="number" value="10" min="1">
+                    </div>
+                    <div class="field">
+                        <label for="descuento">Descuento (%)</label>
+                        <input id="descuento" type="number" value="0" min="0" max="100">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a href="#" class="btn-ghost">Cancelar</a>
+                    <a href="#" class="btn-story">Guardar producto</a>
+                </div>
+            </section>
+
+            <!-- Listado: productos con vendedor_id = 1 y el nombre de su productor -->
+            <section class="box">
+                <h3>Productos del puesto</h3>
+                <table class="lines">
+                    <tr><th>Producto</th><th>Productor</th><th class="num">Stock</th><th class="num">B2C</th><th class="num">B2B</th></tr>
+                    <tr>
+                        <td>Tomates de Agüimes</td><td>Finca Las Vegas</td>
+                        <td class="num">120 kg<div class="stock-bar"><span style="width: 60%"></span></div></td>
+                        <td class="num">2,50 €</td><td class="num">1,90 €</td>
+                    </tr>
+                    <tr>
+                        <td>Papas negras</td><td>Cooperativa de San Mateo</td>
+                        <td class="num">200 kg<div class="stock-bar"><span style="width: 100%"></span></div></td>
+                        <td class="num">1,80 €</td><td class="num">1,30 €</td>
+                    </tr>
+                    <tr class="row-new">
+                        <td>Cebollas <span class="badge badge-b2b">Nuevo</span></td><td>Cooperativa de San Mateo</td>
+                        <td class="num">80 kg<div class="stock-bar"><span style="width: 40%"></span></div></td>
+                        <td class="num">1,50 €</td><td class="num">1,10 €</td>
+                    </tr>
+                </table>
+                <div class="note">El stock baja solo cuando se confirma un pedido. Si llega a 0, el producto deja de aparecer en la tienda.</div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Grupo ODS 12 — ULPGC (EITE)</p>
+    </footer>
+
+</body>
+</html>

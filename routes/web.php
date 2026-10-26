@@ -63,7 +63,7 @@ Route::get('/AdrianPrivado', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Bloque 4, apartado 4.2 — Ruta con parámetro + plantilla paginaPersonal_Grupo1
+| Bloque 4, apartado 4.2 — Ruta con parámetro + plantilla paginaPersonal_Grupo4
 | http://pweb26.test/paginaPersonal/Ricardo (también Rosalinda, Adrian...)
 |--------------------------------------------------------------------------
 */
@@ -83,7 +83,7 @@ Route::get('/paginaPersonal/{nombre}', function ($nombre) {
         $contenido = $html;
     }
 
-    return view('paginaPersonal_Grupo1', [
+    return view('paginaPersonal_Grupo4', [
         'nombre' => $nombre,
         'contenido' => $contenido,
     ]);

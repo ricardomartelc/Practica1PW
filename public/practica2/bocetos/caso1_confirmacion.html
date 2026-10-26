@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido confirmado - Ecodirecto</title>
+    <link rel="stylesheet" href="../../css/grupo4.css">
+    <link rel="stylesheet" href="../../css/bocetos.css">
+</head>
+<body>
+
+    <!-- Boceto estático del caso de uso 1: pantalla que aparece tras confirmar.
+         Corresponde al pedido 1 y a sus detalles 1 y 2 de ecodirecto_datos.sql. -->
+    <div class="boceto-tag">Boceto · Caso de uso 1 · Confirmación del pedido</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Mercado</a>
+        <a href="#">El equipo</a>
+        <a href="#">Acerca de</a>
+        <a href="#" class="nav-user">María · Cesta (0)</a>
+    </nav>
+
+    <main class="confirm">
+
+        <div class="confirm-head">
+            <div class="check">✓</div>
+            <h1>¡Pedido confirmado!</h1>
+            <p>Gracias, María. Tu pedido nº 1 se ha enviado a La Huerta de Vegueta.</p>
+        </div>
+
+        <!-- Valores posibles de pedidos.estado para un puesto con recogida -->
+        <ol class="steps">
+            <li class="done">Pendiente</li>
+            <li>Listo para recoger</li>
+            <li>Recogido</li>
+        </ol>
+
+        <!-- Detalles del pedido: precio_aplicado guardado en el momento de la compra -->
+        <table class="lines">
+            <tr><th>Producto</th><th>Origen</th><th class="num">Cantidad</th><th class="num">Precio</th><th class="num">Importe</th></tr>
+            <tr><td>Tomates de Agüimes</td><td>Finca Las Vegas</td><td class="num">2 kg</td><td class="num">2,50 €</td><td class="num">5,00 €</td></tr>
+            <tr><td>Papas negras</td><td>Cooperativa de San Mateo</td><td class="num">3 kg</td><td class="num">1,80 €</td><td class="num">5,40 €</td></tr>
+        </table>
+        <div class="total"><span>Total</span><span>10,40 €</span></div>
+
+        <div class="info-grid">
+            <div class="info"><span>Fecha</span>20/10/2026, 10:15</div>
+            <div class="info"><span>Entrega</span>Recogida en Mercado de Vegueta, puesto 12</div>
+            <div class="info"><span>Cliente</span>María Santana Ramírez · Particular</div>
+            <div class="info"><span>Impacto</span>1,45 kg de CO₂ ahorrados</div>
+        </div>
+
+        <div class="note">Te avisaremos cuando tu pedido esté listo para recoger. El stock de los productos ya se ha descontado.</div>
+
+        <div class="actions">
+            <a href="caso1_puesto.html" class="btn-ghost">Seguir comprando</a>
+            <a href="#" class="btn-story">Ver mis pedidos</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Grupo ODS 12 — ULPGC (EITE)</p>
+    </footer>
+
+</body>
+</html>

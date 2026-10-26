@@ -3,111 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Público - Adrián Pallé Montañés</title>
-    <link rel="stylesheet" href="css/grupo1.css">
+    <title>Perfil Privado - Adrián Pallé Montañés</title>
 </head>
 <body>
+<div class="priv">
 
-    <!-- Menú de navegación del grupo -->
+    <!--
+        Estilo propio de la página privada, inspirado en el sistema "Intercom"
+        (styles.refero.design): papel crema, letra fina, etiquetas en
+        monoespaciada, esquinas de 4px y sin sombras. Va dentro del <body>
+        y limitado a .priv para que también funcione dentro de la plantilla
+        paginaPersonal_Grupo4 sin romper su cabecera ni su pie.
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap');
+
+        .priv {
+            --violet: #0007cb;
+            --cream: #faf9f6;
+            --linen: #f1eee9;
+            --stone: #d3cec6;
+            --hairline: #dedbd6;
+            --ink: #111111;
+            --iron: #414141;
+            --graphite: #585858;
+            --smoke: #888888;
+            --mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+            --serif: 'Source Serif 4', Georgia, serif;
+
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        body:has(.priv) {
+            margin: 0;
+            background: #faf9f6;
+        }
+
+        .priv * {
+            box-sizing: border-box;
+        }
+
+        .priv .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* Etiquetas monoespaciadas */
+        .priv .label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--graphite);
+            margin-bottom: 16px;
+        }
+
+        /* Títulos: finos, sin negrita */
+        .priv h1,
+        .priv h2,
+        .priv h3 {
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: 300;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        .priv h1 {
+            font-size: clamp(48px, 7vw, 80px);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+        }
+
+        .priv h2 {
+            font-size: clamp(30px, 4vw, 40px);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .priv h3 {
+            font-size: 20px;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .priv p {
+            color: var(--iron);
+            margin: 0 0 16px;
+        }
+
+        .priv a {
+            color: var(--ink);
+        }
+
+        /* Barra de aviso */
+        .priv .announce {
+            background: var(--ink);
+            color: var(--cream);
+            text-align: center;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 10px 16px;
+        }
+
+        .priv .announce span {
+            color: #9ea2ff;
+        }
+
+        /* Menú superior */
+        .priv nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 48px;
+            border-bottom: 1px solid var(--hairline);
+            background: transparent;
+            position: static;
+        }
+
+        .priv nav .brand {
+            font-family: var(--mono);
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .priv nav .links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .priv nav .links a {
+            color: var(--graphite);
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            padding: 0 0 4px;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            background: none;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .priv nav .links a:hover,
+        .priv nav .links a.active {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+            background: none;
+        }
+
+        /* Portada */
+        .priv .hero {
+            padding: 96px 0 56px;
+        }
+
+        .priv .hero-grid {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 48px;
+        }
+
+        .priv .hero h1 {
+            flex: 0 1 60%;
+        }
+
+        .priv .hero .sub {
+            flex: 0 1 300px;
+            font-size: 16px;
+            color: var(--graphite);
+            border-left: 1px solid var(--stone);
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        /* Tira horizontal de imágenes */
+        .priv .strip {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            padding-bottom: 96px;
+        }
+
+        .priv .strip img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* Bloques 50/50 de texto e imagen */
+        .priv .feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            padding-top: 96px;
+            padding-bottom: 96px;
+        }
+
+        .priv .feature.reverse .feature-media {
+            order: -1;
+        }
+
+        .priv .feature-media {
+            background: var(--linen);
+            border-radius: 4px;
+            padding: 32px;
+        }
+
+        .priv .feature-media img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .priv .feature-media.portrait img {
+            aspect-ratio: 1 / 1;
+            object-position: center 25%;
+        }
+
+        .priv .feature-media.contain img {
+            object-fit: contain;
+            background: #ffffff;
+        }
+
+        /* Bandas de color para separar secciones (sin líneas) */
+        .priv .band-linen {
+            background: var(--linen);
+        }
+
+        .priv .band-linen .feature-media {
+            background: var(--cream);
+        }
+
+        /* Cita en serif */
+        .priv .quote {
+            padding: 112px 0;
+            text-align: center;
+            background: var(--stone);
+        }
+
+        .priv .quote blockquote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(24px, 3vw, 34px);
+            line-height: 1.35;
+            max-width: 760px;
+            margin: 0 auto 20px;
+            color: var(--ink);
+        }
+
+        /* Notas privadas en tarjetas */
+        .priv .notes {
+            padding: 96px 0;
+        }
+
+        .priv .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .priv .note {
+            background: #ffffff;
+            border: 1px solid var(--hairline);
+            border-radius: 4px;
+            padding: 28px;
+        }
+
+        .priv .note .label {
+            margin-bottom: 24px;
+        }
+
+        .priv .note p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Botones */
+        .priv .btn {
+            display: inline-block;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: 1px solid var(--ink);
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .priv .btn-primary {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .priv .btn-primary:hover {
+            background: var(--violet);
+            border-color: var(--violet);
+        }
+
+        .priv .btn-outline {
+            background: #ffffff;
+            color: var(--ink);
+        }
+
+        .priv .btn-outline:hover {
+            background: var(--linen);
+        }
+
+        .priv .btn-ghost {
+            background: none;
+            border-color: transparent;
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            padding-left: 0;
+        }
+
+        .priv .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        /* Equipo: fotos en escala de grises */
+        .priv .team {
+            padding: 96px 0;
+            border-top: 1px solid var(--hairline);
+        }
+
+        .priv .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .priv .member {
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .priv .member img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 4px;
+            filter: grayscale(1);
+            transition: filter 0.2s ease;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .priv .member:hover img {
+            filter: grayscale(0);
+        }
+
+        .priv .member span {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Pie */
+        .priv .foot {
+            background: var(--linen);
+            padding: 40px 0;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--graphite);
+        }
+
+        .priv .foot .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Móvil */
+        @media (max-width: 800px) {
+            .priv .wrap,
+            .priv nav {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .priv .hero-grid,
+            .priv .foot .wrap {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .priv .strip,
+            .priv .feature,
+            .priv .notes-grid,
+            .priv .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .priv .feature {
+                gap: 32px;
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .priv .feature.reverse .feature-media {
+                order: 0;
+            }
+
+            .priv .strip img {
+                height: 220px;
+            }
+        }
+    </style>
+
+    <div class="announce">Área privada <span>·</span> Solo para miembros del Grupo 4</div>
+
     <nav>
-        <a href="RicardoPublico.html">Ricardo</a>
-        <a href="RosalindaPublico.html">Rosalinda</a>
-        <a href="AdrianPublico.html">Adrián</a>
+        <a class="brand" href="/AdrianPrivado">Adrián Pallé</a>
+        <div class="links">
+            <a href="/RicardoPrivado">Ricardo</a>
+            <a href="/RosalindaPrivado">Rosalinda</a>
+            <a href="/AdrianPrivado" class="active">Adrián</a>
+        </div>
     </nav>
 
-    <!-- PORTADA a pantalla completa -->
-    <header class="cover">
-        <div class="cover-inner">
-            <div>
-                <h1 class="cover-title">Adrián<br>Pallé Montañés</h1>
+    <!-- Portada -->
+    <header class="hero">
+        <div class="wrap">
+            <span class="label">Perfil privado · Programación Web · ODS 12</span>
+            <div class="hero-grid">
+                <h1>Adrián Pallé Montañés</h1>
+                <p class="sub">
+                    Versión privada de mi perfil dentro del portal del Grupo 4.
+                    Aquí guardo mis notas sobre el proyecto y mi parte del trabajo.
+                </p>
             </div>
-            <p class="cover-desc">
-                Perfil personal dentro del portal del Grupo 1 de Programación
-                Web, dedicado al ODS 12: producción y consumo responsables.
-            </p>
         </div>
     </header>
 
-    <!-- Bloque 1: Sobre mí -->
-    <section class="chapter" id="sobre-mi">
-        <div class="chapter-text">
-            <span class="chapter-number">Capítulo 01</span>
-            <h2>Sobre mí</h2>
-            <p>
-                Me llamo Adrián Pallé Montañés y soy estudiante de
-                Telecomunicaciones. Fuera de la carrera, me gusta practicar
-                deporte con regularidad y viajar siempre que puedo.
-            </p>
-            <p>
-                Mi planificación de estudios posteriores va encaminada hacia la
-                inteligencia artificial y la automatización de procesos, guiada
-                por mi interés en la innovación tecnológica de la IA.
-            </p>
-            <button class="btn-story" onclick="alert('¡Hola! Bienvenido al perfil de Adrián')">Saludar</button>
+    <div class="wrap">
+        <div class="strip">
+            <img src="/img/greenflower.webp" alt="Flores verdes, imagen del portal">
+            <img src="/img/arbol%20fondo.avif" alt="Árbol, imagen de fondo del portal">
         </div>
-        <div class="chapter-media">
-            <!-- Imagen panorámica: se respeta su proporción original para no recortar los laterales -->
-            <img src="https://www.codificable.es/storage/media/100/Workflows-n8n-personalizados.png" alt="Flujo de automatización con un agente de IA en n8n" style="aspect-ratio: 1344 / 768;">
-        </div>
-    </section>
+    </div>
 
-    <!-- Cita destacada con imagen de fondo fija -->
-    <section class="section-bg-fixed">
-        <blockquote>
-            «La tecnología más útil es la que nos ayuda a hacer más con menos.»
-        </blockquote>
-    </section>
-
-    <!-- Bloque 2: ODS 12 (orden invertido: imagen a la izquierda) -->
-    <section class="chapter reverse section-bg-scroll">
-        <div class="chapter-text">
-            <span class="chapter-number">Capítulo 02</span>
-            <h2>Nuestro proyecto: ODS 12</h2>
-            <p>
-                El portal gira en torno al Objetivo de Desarrollo Sostenible 12,
-                Producción y Consumo Responsables. La idea es ofrecer
-                herramientas web que ayuden a consumir de forma más consciente,
-                aprovechar mejor los recursos y reducir la cantidad de residuos
-                que generamos en el día a día.
-            </p>
-        </div>
-        <div class="chapter-media">
-            <img src="https://reducereutilizarecicla.org/web/app/uploads/2023/11/post-dudas-robots-reciclaje.jpg" alt="Robots de reciclaje, imagen sobre el ODS 12">
+    <!-- Sección 1: Sobre mí -->
+    <section class="band-linen">
+        <div class="wrap feature">
+            <div class="feature-text">
+                <span class="label">01 · Sobre mí</span>
+                <h2>Telecomunicaciones, deporte y viajes</h2>
+                <p>
+                    Me llamo Adrián Pallé Montañés y soy estudiante de
+                    Telecomunicaciones. Fuera de la carrera, me gusta practicar
+                    deporte con regularidad y viajar siempre que puedo.
+                </p>
+                <p>
+                    Mi planificación de estudios posteriores va encaminada hacia la
+                    inteligencia artificial y la automatización de procesos, guiada
+                    por mi interés en la innovación tecnológica de la IA.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="alert('Hola, estás en el área privada de Adrián')">Saludar</button>
+                </div>
+            </div>
+            <div class="feature-media portrait">
+                <img src="/img/adrian.jpg" alt="Foto de Adrián Pallé Montañés">
+            </div>
         </div>
     </section>
 
-    <!-- Bloque 3: Cómo trabajamos -->
-    <section class="chapter">
-        <div class="chapter-text">
-            <span class="chapter-number">Capítulo 03</span>
-            <h2>Cómo trabajamos</h2>
-            <p>
-                Personalmente, desarrollo el proyecto con <strong>Laravel 13</strong>,
-                ejecutándolo en local sobre Laravel Herd en mi Mac. Para
-                coordinarnos, el grupo comparte un único repositorio Git en el
-                que cada integrante trabaja en su propia rama y después integra
-                sus cambios en la rama principal.
-            </p>
-        </div>
-        <div class="chapter-media chapter-media--fit">
-            <img src="../img/ImgLaravel13.png" alt="Mi entorno de desarrollo con Laravel 13">
+    <!-- Cita destacada -->
+    <section class="quote">
+        <div class="wrap">
+            <blockquote>«La tecnología más útil es la que nos ayuda a hacer más con menos.»</blockquote>
+            <span class="label">Idea que guía el proyecto</span>
         </div>
     </section>
 
-    <!-- Bloque 4: Recursos y enlaces -->
-    <section class="lede">
-        <span class="chapter-number">Capítulo 04</span>
-        <h2>Recursos y enlaces</h2>
-        <p>
-            Aquí puedes encontrar la documentación oficial de Herd, una de las
-            herramientas que uso para esta práctica.
-        </p>
-        <a href="https://herd.laravel.com/docs/macos/guides/laravel" target="_blank" rel="noopener noreferrer" class="btn-story">Documentación oficial de Herd</a>
+    <!-- Sección 2: ODS 12 -->
+    <section>
+        <div class="wrap feature reverse">
+            <div class="feature-text">
+                <span class="label">02 · Nuestro proyecto</span>
+                <h2>Producción y consumo responsables</h2>
+                <p>
+                    El portal gira en torno al Objetivo de Desarrollo Sostenible 12,
+                    Producción y Consumo Responsables. La idea es ofrecer
+                    herramientas web que ayuden a consumir de forma más consciente,
+                    aprovechar mejor los recursos y reducir la cantidad de residuos
+                    que generamos en el día a día.
+                </p>
+            </div>
+            <div class="feature-media">
+                <img src="/img/arbol%20fondo.avif" alt="Árbol, símbolo del consumo sostenible">
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Adrián Pallé Montañés — ULPGC (EITE)</p>
-    </footer>
+    <!-- Sección 3: Cómo trabajamos -->
+    <section class="band-linen">
+        <div class="wrap feature">
+            <div class="feature-text">
+                <span class="label">03 · Cómo trabajamos</span>
+                <h2>Laravel 13, Herd y Git</h2>
+                <p>
+                    Desarrollo el proyecto con Laravel 13, ejecutándolo en local
+                    sobre Laravel Herd en mi Mac. Para coordinarnos, el grupo
+                    comparte un único repositorio en GitHub donde cada integrante
+                    sube sus cambios.
+                </p>
+            </div>
+            <div class="feature-media contain">
+                <img src="/img/ImgLaravel13.png" alt="Mi entorno de desarrollo con Laravel 13">
+            </div>
+        </div>
+    </section>
 
+    <!-- Sección 4: Notas privadas -->
+    <section class="notes">
+        <div class="wrap">
+            <span class="label">04 · Notas privadas</span>
+            <h2>Mi parte en la Práctica 1</h2>
+            <div class="notes-grid">
+                <div class="note">
+                    <span class="label">Páginas</span>
+                    <h3>Pública y privada</h3>
+                    <p>AdrianPublico.html en public y esta versión privada en la carpeta practica, con un diseño propio.</p>
+                </div>
+                <div class="note">
+                    <span class="label">Rutas</span>
+                    <h3>/Adrian y /AdrianPrivado</h3>
+                    <p>La pública redirige al archivo de public. La privada la entrega Laravel, porque está fuera de public.</p>
+                </div>
+                <div class="note">
+                    <span class="label">Plantilla</span>
+                    <h3>/paginaPersonal/Adrian</h3>
+                    <p>Esta misma página cargada dentro de la plantilla Blade del grupo, con su cabecera y su pie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Recursos y enlaces -->
+    <section class="band-linen">
+        <div class="wrap feature">
+            <div class="feature-text">
+                <span class="label">05 · Recursos</span>
+                <h2>Documentación que uso</h2>
+                <p>
+                    Las herramientas principales de esta práctica tienen su
+                    documentación oficial en línea.
+                </p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="https://herd.laravel.com/docs/macos/guides/laravel" target="_blank" rel="noopener noreferrer">Documentación de Herd</a>
+                    <a class="btn btn-outline" href="https://laravel.com/docs" target="_blank" rel="noopener noreferrer">Documentación de Laravel</a>
+                    <a class="btn btn-ghost" href="/AdrianPublico.html">Ver mi perfil público</a>
+                </div>
+            </div>
+            <div class="feature-media">
+                <img src="/img/greenflower.webp" alt="Flores verdes">
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="team">
+        <div class="wrap">
+            <span class="label">El grupo</span>
+            <h2>Perfiles privados del equipo</h2>
+            <div class="team-grid">
+                <a class="member" href="/RicardoPrivado">
+                    <img src="/img/ricardo.png" alt="Ricardo">
+                    <span>Ricardo Martel</span>
+                </a>
+                <a class="member" href="/RosalindaPrivado">
+                    <img src="/img/rosalinda.jpeg" alt="Rosalinda">
+                    <span>Rosalinda</span>
+                </a>
+                <a class="member" href="/AdrianPrivado">
+                    <img src="/img/adrian.jpg" alt="Adrián">
+                    <span>Adrián Pallé</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="foot">
+        <div class="wrap">
+            <span>&copy; 2026 Adrián Pallé Montañés — ULPGC (EITE)</span>
+            <span>Perfil privado · Grupo 4</span>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

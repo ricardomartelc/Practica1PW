@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Equipo - Grupo ODS 12</title>
-    <link rel="stylesheet" href="{{ asset('css/grupo1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/grupo4.css') }}">
 </head>
 <body>
 

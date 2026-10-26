@@ -122,3 +122,13 @@ Route::get('/miPortal/home', function () {
 Route::get('/miPortal/acerca', function () {
     return view('miPortal.acerca');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 2, Bloque 4 — Bocetos de los casos de uso de Ecodirecto
+| http://pweb26.test/miPortal/bocetos (las páginas están en public/bocetos)
+|--------------------------------------------------------------------------
+*/
+Route::get('/miPortal/bocetos', function () {
+    return view('miPortal.bocetos');
+});

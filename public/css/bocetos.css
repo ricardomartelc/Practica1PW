@@ -15,6 +15,10 @@
     padding: 6px 12px;
 }
 
+.boceto-tag a {
+    color: #ffffff;
+}
+
 /* Menú: zona de usuario a la derecha */
 nav .nav-user {
     margin-left: auto;

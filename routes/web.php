@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\GestionPuestoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProductorController;
+use App\Http\Controllers\VendedorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,3 +136,40 @@ Route::get('/miPortal/acerca', function () {
 */
 Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 Route::get('/productos/{producto}', [ProductoController::class, 'show'])->name('productos.show');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 3, Bloque 4 — Puestos (VendedorController)
+| http://pweb26.test/puestos               → lista de puestos
+| http://pweb26.test/puestos/{vendedor}    → página de un puesto con sus productos
+|--------------------------------------------------------------------------
+*/
+Route::get('/puestos', [VendedorController::class, 'index'])->name('puestos.index');
+Route::get('/puestos/{vendedor}', [VendedorController::class, 'show'])->name('puestos.show');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 3, Bloque 4 — Productores (ProductorController)
+| http://pweb26.test/productores               → lista de productores
+| http://pweb26.test/productores/{productor}   → ficha de un productor
+|--------------------------------------------------------------------------
+*/
+Route::get('/productores', [ProductorController::class, 'index'])->name('productores.index');
+Route::get('/productores/{productor}', [ProductorController::class, 'show'])->name('productores.show');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 3, Bloque 4 — Caso de uso 4: gestión de los productos de un puesto
+| (GestionPuestoController, tabla tienda_vendedores)
+| GET    /puestos/{vendedor}/gestion                     → lista + formulario de añadir
+| POST   /puestos/{vendedor}/gestion                     → añadir producto
+| GET    /puestos/{vendedor}/gestion/{producto}/editar   → formulario de editar
+| PUT    /puestos/{vendedor}/gestion/{producto}          → guardar cambios
+| DELETE /puestos/{vendedor}/gestion/{producto}          → quitar del puesto
+|--------------------------------------------------------------------------
+*/
+Route::get('/puestos/{vendedor}/gestion', [GestionPuestoController::class, 'index'])->name('gestion.index');
+Route::post('/puestos/{vendedor}/gestion', [GestionPuestoController::class, 'store'])->name('gestion.store');
+Route::get('/puestos/{vendedor}/gestion/{producto}/editar', [GestionPuestoController::class, 'edit'])->name('gestion.edit');
+Route::put('/puestos/{vendedor}/gestion/{producto}', [GestionPuestoController::class, 'update'])->name('gestion.update');
+Route::delete('/puestos/{vendedor}/gestion/{producto}', [GestionPuestoController::class, 'destroy'])->name('gestion.destroy');

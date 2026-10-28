@@ -1,6 +1,5 @@
 <nav>
     <a href="/miPortal/home">Home</a>
     <a href="/elGrupo">El equipo</a>
-    <a href="/miPortal/bocetos">Bocetos</a>
-    <a href="/miPortal/acerca">Acerca de</a>
+    <a href="{{ route('productos.index') }}">Productos</a>
 </nav>

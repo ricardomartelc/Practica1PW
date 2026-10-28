@@ -1,23 +1,8 @@
 /* ==========================================================================
-   bocetos.css — Práctica 2, Bloque 4 (bocetos de los casos de uso)
+   ecodirecto.css — Estilos de la tienda de Ecodirecto (catálogo, puestos...)
    Se carga después de grupo4.css y reutiliza sus colores y tipografías.
    Solo añade los componentes de tienda: tarjetas, cesta, resumen...
    ========================================================================== */
-
-/* Aviso de boceto */
-.boceto-tag {
-    background: var(--moss);
-    color: #ffffff;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 6px 12px;
-}
-
-.boceto-tag a {
-    color: #ffffff;
-}
 
 /* Menú: zona de usuario a la derecha */
 nav .nav-user {
@@ -660,4 +645,15 @@ nav .nav-user {
 
 .lines .num {
     white-space: nowrap;
+}
+
+/* Botón de las tarjetas cuando es un enlace */
+a.btn-small {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.btn-small:hover {
+    color: #ffffff;
 }

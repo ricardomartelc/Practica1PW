@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -125,10 +126,10 @@ Route::get('/miPortal/acerca', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Práctica 2, Bloque 4 — Bocetos de los casos de uso de Ecodirecto
-| http://pweb26.test/miPortal/bocetos (las páginas están en public/bocetos)
+| Práctica 3, Bloque 4 — Catálogo de productos (ProductoController)
+| http://pweb26.test/productos               → lista de productos
+| http://pweb26.test/productos/{producto}    → ficha de un producto
 |--------------------------------------------------------------------------
 */
-Route::get('/miPortal/bocetos', function () {
-    return view('miPortal.bocetos');
-});
+Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+Route::get('/productos/{producto}', [ProductoController::class, 'show'])->name('productos.show');

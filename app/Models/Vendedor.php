@@ -18,12 +18,15 @@ class Vendedor extends Model
         'password' => 'hashed',
     ];
 
-    // Un vendedor tiene muchos productos, sensores y pedidos
+    // N:M con productos a través de tienda_vendedores (lo que vende en su puesto)
     public function productos()
     {
-        return $this->hasMany(Producto::class);
+        return $this->belongsToMany(Producto::class, 'tienda_vendedores')
+            ->using(TiendaVendedor::class)
+            ->withPivot('stock', 'precio_b2c', 'precio_b2b', 'minimo_b2b', 'descuento_pct');
     }
 
+    // Un vendedor tiene muchos sensores y pedidos
     public function sensores()
     {
         return $this->hasMany(Sensor::class);

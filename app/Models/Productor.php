@@ -18,9 +18,11 @@ class Productor extends Model
         'password' => 'hashed',
     ];
 
-    // Un productor tiene muchos productos
+    // N:M con productos a través de almacen_productores (lo que tiene en su finca)
     public function productos()
     {
-        return $this->hasMany(Producto::class);
+        return $this->belongsToMany(Producto::class, 'almacen_productores')
+            ->using(AlmacenProductor::class)
+            ->withPivot('stock', 'precio_origen');
     }
 }

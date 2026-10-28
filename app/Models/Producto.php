@@ -6,31 +6,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+    // Catálogo genérico: el precio y el stock están en almacen_productores y tienda_vendedores
     protected $table = 'productos';
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'vendedor_id', 'productor_id', 'nombre', 'categoria', 'unidad', 'stock',
-        'precio_b2c', 'precio_b2b', 'minimo_b2b', 'descuento_pct', 'co2_por_unidad',
-    ];
+    protected $fillable = ['nombre', 'categoria', 'unidad', 'co2_por_unidad'];
 
-    // Los precios y el CO2 se leen siempre con 2 decimales
     protected $casts = [
-        'precio_b2c' => 'decimal:2',
-        'precio_b2b' => 'decimal:2',
         'co2_por_unidad' => 'decimal:2',
     ];
 
-    // Un producto pertenece a un vendedor y a un productor
-    public function vendedor()
+    // N:M con productores a través de almacen_productores (stock y precio de origen)
+    public function productores()
     {
-        return $this->belongsTo(Vendedor::class);
+        return $this->belongsToMany(Productor::class, 'almacen_productores')
+            ->using(AlmacenProductor::class)
+            ->withPivot('stock', 'precio_origen');
     }
 
-    public function productor()
+    // N:M con vendedores a través de tienda_vendedores (stock y precios de venta)
+    public function vendedores()
     {
-        return $this->belongsTo(Productor::class);
+        return $this->belongsToMany(Vendedor::class, 'tienda_vendedores')
+            ->using(TiendaVendedor::class)
+            ->withPivot('stock', 'precio_b2c', 'precio_b2b', 'minimo_b2b', 'descuento_pct');
     }
 
     // Un producto aparece en muchas líneas de pedido

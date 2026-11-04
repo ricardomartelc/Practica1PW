@@ -17,17 +17,17 @@
 
                                                                                                           Showing [15] routes
 
-http://Practica1PW.test/
-http://Practica1PW.test/Ricardo
-http://Practica1PW.test/Rosalinda
-http://Practica1PW.test/Adrian
-http://Practica1PW.test/RicardoPrivado
-http://Practica1PW.test/RosalindaPrivado
-http://Practica1PW.test/AdrianPrivado
-http://Practica1PW.test/paginaPersonal/Ricardo
-http://Practica1PW.test/paginaPersonal/Rosalinda
-http://Practica1PW.test/paginaPersonal/Adrian
-http://Practica1PW.test/elGrupo
-http://Practica1PW.test/miPortal
-http://Practica1PW.test/miPortal/home
-http://Practica1PW.test/miPortal/acerca
+http://pweb26.test/
+http://pweb26.test/Ricardo
+http://pweb26.test/Rosalinda
+http://pweb26.test/Adrian
+http://pweb26.test/RicardoPrivado
+http://pweb26.test/RosalindaPrivado
+http://pweb26.test/AdrianPrivado
+http://pweb26.test/paginaPersonal/Ricardo
+http://pweb26.test/paginaPersonal/Rosalinda
+http://pweb26.test/paginaPersonal/Adrian
+http://pweb26.test/elGrupo
+http://pweb26.test/miPortal
+http://pweb26.test/miPortal/home
+http://pweb26.test/miPortal/acerca

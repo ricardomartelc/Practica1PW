@@ -31,3 +31,5 @@ http://pweb26.test/elGrupo
 http://pweb26.test/miPortal
 http://pweb26.test/miPortal/home
 http://pweb26.test/miPortal/acerca
+
+http://pweb26.test/misPhp/menuArchivos.php

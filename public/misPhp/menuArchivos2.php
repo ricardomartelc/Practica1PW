@@ -1,30 +1,48 @@
 <?php
-$enlaces = []; // aquí se guardan todos los enlaces
+// Aquí se guardan todos los enlaces
+$enlaces = [];
 
-// Muestra el contenido de una carpeta; los archivos válidos llevan enlace
+// Muestra el contenido de una carpeta con enlaces
 function mostrarCarpeta($titulo, $ruta) {
     global $enlaces;
     echo "<h2>Contenido de la carpeta <i>$titulo</i>:</h2>";
     echo "<ul>";
-    foreach (scandir($ruta) as $nombre) {
-        if ($nombre == "." || $nombre == "..") continue; // saltar . y ..
-        if (is_dir("$ruta/$nombre")) {
-            echo "<li>$nombre (dir)</li>"; // directorios sin enlace
+    $archivos = scandir($ruta);
+    foreach ($archivos as $nombre) {
+        // saltar . y ..
+        if ($nombre == "." || $nombre == "..") {
             continue;
         }
-        $enlace = "";
-        if ($titulo == "public" && substr($nombre, -12) == "Publico.html") {
-            $enlace = "/" . substr($nombre, 0, -12);
-        } elseif ($titulo == "practica" && substr($nombre, -12) == "Privado.html") {
-            $enlace = "/paginaPersonal/" . substr($nombre, 0, -12);
-        } elseif ($titulo == "misPhp" && substr($nombre, -4) == ".php") {
-            $enlace = "/misPhp/$nombre";
+        // los directorios van sin enlace
+        if (is_dir("$ruta/$nombre")) {
+            echo "<li>$nombre (dir)</li>";
+            continue;
         }
-        if ($enlace != "") {
-            $enlaces[] = $enlace; // guardar el enlace
-            echo "<li><a href='$enlace'>$nombre</a></li>";
+        // decidir el enlace según la carpeta
+        $enlace = "";
+        switch ($titulo) {
+            case "public":
+                if (strpos($nombre, "Publico.html") !== false) {
+                    $enlace = "/" . str_replace("Publico.html", "", $nombre);
+                }
+                break;
+            case "practica":
+                if (strpos($nombre, "Privado.html") !== false) {
+                    $enlace = "/paginaPersonal/" . str_replace("Privado.html", "", $nombre);
+                }
+                break;
+            case "misPhp":
+                if (strpos($nombre, ".php") !== false) {
+                    $enlace = "/misPhp/$nombre";
+                }
+                break;
+        }
+        // con enlace o sin enlace
+        if ($enlace == "") {
+            echo "<li>$nombre</li>";
         } else {
-            echo "<li>$nombre</li>"; // sin enlace
+            $enlaces[] = $enlace;
+            echo "<li><a href='$enlace'>$nombre</a></li>";
         }
     }
     echo "</ul>";
@@ -34,10 +52,15 @@ mostrarCarpeta("public", "..");
 mostrarCarpeta("practica", "../../practica");
 mostrarCarpeta("misPhp", ".");
 ?>
+
 <h2>Selecciona que archivo quieres ejecutar</h2>
 <form method="POST" action="ejecutarArchivo2.php">
     <select name="orden">
-        <?php foreach ($enlaces as $e) echo "<option value='$e'>$e</option>"; ?>
+        <?php
+        foreach ($enlaces as $enlace) {
+            echo "<option value='$enlace'>$enlace</option>";
+        }
+        ?>
     </select>
-    <button type="submit">Ejecutar</button>
+    <input type="submit" value="Ejecutar">
 </form>

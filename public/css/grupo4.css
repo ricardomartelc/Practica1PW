@@ -369,3 +369,40 @@ footer p {
     font-size: 0.8rem;
     margin: 0;
 }
+/* ==========================================================================
+   Práctica 4 — Menú desplegable "Práctica4" (submenú compartido del grupo)
+   ========================================================================== */
+
+/* Contenedor del desplegable: sirve de referencia para colocar el submenú */
+.desplegable {
+    position: relative;
+}
+
+/* Texto "Práctica4": mismo aspecto que los enlaces del menú */
+.desplegable-titulo {
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
+    text-transform: uppercase;
+}
+
+/* Submenú: oculto por defecto, debajo del título */
+.desplegable .submenu {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: none;
+    left: 0;
+    min-width: 160px;
+    position: absolute;
+    top: 100%;
+}
+
+/* Al pasar el ratón por "Práctica4", se muestra el submenú en columna */
+.desplegable:hover .submenu {
+    display: flex;
+    flex-direction: column;
+}

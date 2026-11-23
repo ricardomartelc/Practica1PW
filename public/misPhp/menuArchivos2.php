@@ -22,7 +22,7 @@ function mostrarCarpeta($titulo, $ruta) {
         $enlace = "";
         switch ($titulo) {
             case "public":
-                if (strpos($nombre, "Publico.html") !== false) {
+                if (strpos($nombre, "Publico.html") !== false) {      // Publico.html se pone para eliminarlo de RicardoPublico.html, ya que el fomrato lo requiere en /Ricardo, sin el publico.html
                     $enlace = "/" . str_replace("Publico.html", "", $nombre);
                 }
                 break;

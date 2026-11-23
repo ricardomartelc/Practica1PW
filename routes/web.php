@@ -173,3 +173,14 @@ Route::post('/puestos/{vendedor}/gestion', [GestionPuestoController::class, 'sto
 Route::get('/puestos/{vendedor}/gestion/{producto}/editar', [GestionPuestoController::class, 'edit'])->name('gestion.edit');
 Route::put('/puestos/{vendedor}/gestion/{producto}', [GestionPuestoController::class, 'update'])->name('gestion.update');
 Route::delete('/puestos/{vendedor}/gestion/{producto}', [GestionPuestoController::class, 'destroy'])->name('gestion.destroy');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 4, Bloque 1 — JavaScript: manejo básico del DOM (Ricardo, RMC)
+| http://pweb26.test/practica4/basicoRMC
+| Menú: Práctica4 > Básico RMC
+|--------------------------------------------------------------------------
+*/
+Route::get('/practica4/basicoRMC', function () {
+    return view('practica4.basicoRMC');
+})->name('practica4.basicoRMC');

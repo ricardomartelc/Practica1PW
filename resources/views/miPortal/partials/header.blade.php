@@ -5,4 +5,12 @@
     <a href="{{ route('puestos.index') }}">Puestos</a>
     <a href="{{ route('productores.index') }}">Productores</a>
     <a href="/miPortal/acerca">Acerca de</a>
+
+    {{-- Práctica 4: menú desplegable. Cada miembro añade su <a> dentro del <div class="submenu"> --}}
+    <div class="desplegable">
+        <span class="desplegable-titulo">Práctica4</span>
+        <div class="submenu">
+            <a href="{{ route('practica4.basicoRMC') }}">Básico RMC</a>
+        </div>
+    </div>
 </nav>

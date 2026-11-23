@@ -10,7 +10,7 @@ class Sensor extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['vendedor_id', 'codigo_dispositivo', 'tipo', 'valor_actual', 'umbral_min', 'umbral_max'];
+    protected $fillable = ['vendedor_id', 'codigo_dispositivo', 'tipo', 'valor_actual', 'umbral_min', 'umbral_max', 'periodicidad'];
 
     protected $casts = [
         'valor_actual' => 'decimal:2',

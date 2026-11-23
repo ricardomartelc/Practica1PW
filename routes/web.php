@@ -184,3 +184,15 @@ Route::delete('/puestos/{vendedor}/gestion/{producto}', [GestionPuestoController
 Route::get('/practica4/basicoRMC', function () {
     return view('practica4.basicoRMC');
 })->name('practica4.basicoRMC');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 4, Bloque 2 — JavaScript: manejo de formularios / sensores (Ricardo, RMC)
+| http://pweb26.test/practica4/sensoresRMC
+| Menú: Práctica4 > Sensores RMC
+|--------------------------------------------------------------------------
+*/
+Route::get('/practica4/sensoresRMC', function () {
+    $sensores = \App\Models\Sensor::with('vendedor')->orderBy('id')->get();
+    return view('practica4.sensoresRMC', ['sensores' => $sensores]);
+})->name('practica4.sensoresRMC');

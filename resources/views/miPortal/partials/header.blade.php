@@ -11,6 +11,7 @@
         <span class="desplegable-titulo">Práctica4</span>
         <div class="submenu">
             <a href="{{ route('practica4.basicoRMC') }}">Básico RMC</a>
+            <a href="{{ route('practica4.sensoresRMC') }}">Sensores RMC</a>
         </div>
     </div>
 </nav>

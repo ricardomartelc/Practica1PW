@@ -196,3 +196,14 @@ Route::get('/practica4/sensoresRMC', function () {
     $sensores = \App\Models\Sensor::with('vendedor')->orderBy('id')->get();
     return view('practica4.sensoresRMC', ['sensores' => $sensores]);
 })->name('practica4.sensoresRMC');
+
+/*
+|--------------------------------------------------------------------------
+| Práctica 4, Bloque 4 — JavaScript: librerías externas / gráficos (Ricardo, RMC)
+| http://pweb26.test/practica4/graficosRMC
+| Menú: Práctica4 > Gráficos RMC
+|--------------------------------------------------------------------------
+*/
+Route::get('/practica4/graficosRMC', function () {
+    return view('practica4.graficosRMC');
+})->name('practica4.graficosRMC');

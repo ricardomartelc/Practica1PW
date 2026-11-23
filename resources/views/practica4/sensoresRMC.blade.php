@@ -29,9 +29,9 @@
     </header>
 
     <p class="infoRMC">
-        Cada línea del registro es la URL completa de la API
-        <code>POST /api/sensores/{sensor}/lectura</code> con el parámetro <code>valor</code>.
-        En este bloque solo se generan en local; todavía no se envían.
+        Con <strong>Solo local</strong> marcado, cada línea del registro es la URL completa de la API
+        <code>POST /api/sensores/{sensor}/lectura</code> con el parámetro <code>valor</code> (no se envía).
+        Desmarcado, las lecturas se guardan en el servidor y el registro muestra la respuesta.
     </p>
 
     {{-- Botones type="button": no envían el formulario ni recargan la página --}}
